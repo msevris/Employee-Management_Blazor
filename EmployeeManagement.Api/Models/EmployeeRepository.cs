@@ -21,7 +21,6 @@ namespace EmployeeManagement.Api.Models
             await _context.SaveChangesAsync();
             return result.Entity;
         }
-
         public async Task<Employee> DeleteEmployee(int employeeId)
         {
             var result = await _context.Employees
@@ -34,7 +33,6 @@ namespace EmployeeManagement.Api.Models
             }
             return null;
         }
-
         public async Task<Employee> GetEmployee(int employeeId)
         {
             return await _context.Employees
@@ -45,12 +43,24 @@ namespace EmployeeManagement.Api.Models
             return await _context.Employees
                 .FirstOrDefaultAsync(e => e.Email == email);
         }
-
         public async Task<IEnumerable<Employee>> GetEmployees()
         {
             return await _context.Employees.ToListAsync();
         }
+        public async Task<IEnumerable<Employee>> Search(string name, Gender? gender)
+        {
+            IQueryable<Employee> query = _context.Employees;
 
+            if (!string.IsNullOrEmpty(name))
+            {
+                query = query.Where(e => e.FirstName.Contains(name) || e.LastName.Contains(name));
+            }
+            if (gender != null)
+            {
+                query = query.Where(e => e.Gender == gender);
+            }
+            return await query.ToListAsync();
+        }
         public async Task<Employee> UpdateEmployee(Employee employee)
         {
             var result = await _context.Employees

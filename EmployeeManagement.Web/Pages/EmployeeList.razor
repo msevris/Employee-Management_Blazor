@@ -50,6 +50,7 @@
         margin-right: -15px;
     }
 </style>
+
 @if (Employees == null)
 {
     <div class="spinner"></div>
@@ -66,7 +67,7 @@ else
             </div>
 
             <div class="card-footer">
-                <a href="#"><span class="far fa-eye fa_custom"></span></a>
+                <a href="@($"employeedetails/{employee.EmployeeId}")"><span class="far fa-eye fa_custom"></span></a>
                 <a class="ml-3" href="#"><span class="fas fa-pencil-alt fa_custom"></span></a>
                 <a href="#" class="float-right"><i class="fas fa-trash-alt fa_custom_del"></i></a>
             </div>

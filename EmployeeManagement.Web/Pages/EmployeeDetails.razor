@@ -1,0 +1,133 @@
+﻿@page "/employeedetails/{id}"
+@inherits EmployeeDetailsBase
+<h3>EmployeeDetails</h3>
+
+
+<style>
+    .card {
+        min-width: 700px;
+        max-width: 700px;
+        min-height: 450px;
+        max-height: 450px;
+        margin-top: 8px;
+        border-radius: 0.45rem;
+    }
+
+    .card-header {
+        min-height: 95px;
+        background-color: rgb(57,108,164);
+        font-size: large;
+        font-weight: 500;
+        color: white;
+    }
+
+    .card-footer {
+        min-height: 80px;
+        background-color: rgb(90, 128, 170);
+    }
+
+    .img-Thumbnail {
+        border-radius: 5px 5px;
+        margin-top: 15px;
+        margin-left: 10px;
+    }
+
+    #employee_details {
+        font-weight: 300;
+        color: rgb(57,108,164);
+        margin-top: 60px;
+    }
+
+    #header_employee_name {
+        margin-top: 10px;
+        margin-right: 15px;
+        font-size: xx-large;
+        font-weight: 300;
+    }
+
+    #card_footer {
+        color: white;
+    }
+
+    #card_footer1 {
+        background-color: rgb(57,108,164);
+        color: white;
+        min-height: 40px;
+    }
+
+    #header_img {
+        margin-left: 10px;
+    }
+
+    #btn_back {
+        margin-top: -14px;
+        margin-left: 40px;
+        font-family: Roboto;
+        font-weight: 500;
+    }
+
+    #btn_edit {
+        margin-top: -14px;
+        margin-left: 40px;
+        font-family: Roboto;
+        font-weight: 500;
+    }
+
+    #btn_del {
+        margin-top: -8px;
+        margin-left: 40px;
+        font-family: Roboto;
+        font-weight: 400;
+        border-color: rgb(57,108,164);
+        color: rgb(245,176,176);
+        text-shadow: inherit
+    }
+</style>
+
+<div class="row">
+    <div class="card">
+        <div class="card-header align-items-center">
+            <img id="header_img" src="~/images/IMS-150x150.png" asp-append-version="true" />
+            <a class="text float-right" id="header_employee_name">@Employee.FirstName @Employee.LastName </a>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-sm-4">
+                    <img class="img-Thumbnail shadow-sm" src="@Employee.PhotoPath" asp-append-version="true" />
+                </div>
+                <div class="col-sm-6 ml-md-auto" id="employee_details">
+                    <h5><i class="fas fa-phone"></i>&emsp;Employee ID : @Employee.EmployeeId </h5>
+                    <br />
+                    <h5><i class="fas fa-phone"></i>&emsp;PhoneNumber : @Employee.PhoneNumber </h5>
+                    <br />
+                    <h5><i class="fas fa-map"></i>&emsp;BarCode : @Employee.DateOfBirth</h5>
+                    <br />
+                    <h5><i class="fas fa-envelope"></i>&emsp;Email : @Employee.Email </h5>
+                    <br />
+                    <h5><i class="fas fa-map"></i>&emsp;Address : @Employee.Address</h5>
+                    <br />
+                    <h5><i class="fas fa-map"></i>&emsp;BarCode : @Employee.BarCode</h5>
+                </div>
+            </div>
+        </div>
+        <div class="card-footer" id="card_footer">
+            <div class="row">
+                <div class="col">
+                    <h6 style="margin-left: 55px">@Employee.FirstName @Employee.LastName </h6>
+                    <h6 style="margin-left:55px">Department : @Employee.DepartmentId </h6>
+                </div>
+                <div class="col ml-auto">
+                    @*<h6 class="float-right"><i class="fa fa-barcode">@Model.Employee.BarCode</i></h6>*@
+
+                </div>
+            </div>
+        </div>
+        <div class="card-footer" id="card_footer1">
+            <div class="container">
+                <a href="/" id="btn_back" class="btn btn-sm text-white ml-auto"><i class="fas fa-chevron-left"></i>&emsp; Back</a>
+
+            </div>
+        </div>
+    </div>
+</div>
+
