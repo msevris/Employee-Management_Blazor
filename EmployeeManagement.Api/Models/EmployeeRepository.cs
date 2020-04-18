@@ -22,21 +22,28 @@ namespace EmployeeManagement.Api.Models
             return result.Entity;
         }
 
-        public async void DeleteEmployee(int employeeId)
+        public async Task<Employee> DeleteEmployee(int employeeId)
         {
-           var result = await _context.Employees
-                .FirstOrDefaultAsync(e => e.EmployeeId == employeeId);
-            if (result !=null)
+            var result = await _context.Employees
+                 .FirstOrDefaultAsync(e => e.EmployeeId == employeeId);
+            if (result != null)
             {
                 _context.Employees.Remove(result);
-               await _context.SaveChangesAsync();
+                await _context.SaveChangesAsync();
+                return result;
             }
+            return null;
         }
 
         public async Task<Employee> GetEmployee(int employeeId)
         {
             return await _context.Employees
                 .FirstOrDefaultAsync(e => e.EmployeeId == employeeId);
+        }
+        public async Task<Employee> GetEmployeeByEmail(string email)
+        {
+            return await _context.Employees
+                .FirstOrDefaultAsync(e => e.Email == email);
         }
 
         public async Task<IEnumerable<Employee>> GetEmployees()
