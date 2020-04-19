@@ -169,7 +169,7 @@ namespace EmployeeManagement.Api.Models
                 DateOfBirth = new DateTime(1976, 5, 19),
                 Gender = Gender.Male,
                 DepartmentId = 1,
-                PhotoPath = "images/moImage.png",
+                PhotoPath = "images/noImage.png",
             });
         }
     }

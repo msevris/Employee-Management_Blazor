@@ -35,7 +35,7 @@
     #employee_details {
         font-weight: 300;
         color: rgb(57,108,164);
-        margin-top: 60px;
+        margin-top: 20px;
     }
 
     #header_employee_name {
@@ -84,50 +84,54 @@
     }
 </style>
 
-<div class="row">
-    <div class="card">
-        <div class="card-header align-items-center">
-            <img id="header_img" src="~/images/IMS-150x150.png" asp-append-version="true" />
-            <a class="text float-right" id="header_employee_name">@Employee.FirstName @Employee.LastName </a>
-        </div>
-        <div class="card-body">
-            <div class="row">
-                <div class="col-sm-4">
-                    <img class="img-Thumbnail shadow-sm" src="@Employee.PhotoPath" asp-append-version="true" />
-                </div>
-                <div class="col-sm-6 ml-md-auto" id="employee_details">
-                    <h5><i class="fas fa-phone"></i>&emsp;Employee ID : @Employee.EmployeeId </h5>
-                    <br />
-                    <h5><i class="fas fa-phone"></i>&emsp;PhoneNumber : @Employee.PhoneNumber </h5>
-                    <br />
-                    <h5><i class="fas fa-map"></i>&emsp;BarCode : @Employee.DateOfBirth</h5>
-                    <br />
-                    <h5><i class="fas fa-envelope"></i>&emsp;Email : @Employee.Email </h5>
-                    <br />
-                    <h5><i class="fas fa-map"></i>&emsp;Address : @Employee.Address</h5>
-                    <br />
-                    <h5><i class="fas fa-map"></i>&emsp;BarCode : @Employee.BarCode</h5>
+@if (Employee == null)
+{
+    <div class="spinner"></div>
+}
+else
+{
+    <div class="row">
+        <div class="card">
+            <div class="card-header align-items-center">
+                <img id="header_img" src="/images/ims.png" asp-append-version="true" />
+                <a class="text float-right" id="header_employee_name">@Employee.FirstName @Employee.LastName </a>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <img class="img-Thumbnail shadow-sm" src="@Employee.PhotoPath" asp-append-version="true" />
+                    </div>
+                    <div class="col-sm-6 ml-md-auto" id="employee_details">
+                        <h5><i class="fas fa-passport"></i>&emsp;Employee ID : @Employee.EmployeeId </h5>
+                        <br />
+                        <h5><i class="fas fa-phone"></i>&emsp;@Employee.PhoneNumber </h5>
+                        <br />
+                        <h5><i class="fas fa-birthday-cake"></i>&emsp;@Employee.DateOfBirth.ToString("dd MMMM yyyy")</h5>
+                        <br />
+                        <h5><i class="fas fa-envelope"></i>&emsp;@Employee.Email </h5>
+                        <br />
+                        <h5><i class="fas fa-map-marker-alt"></i>&emsp;@Employee.Address</h5>
+                        <br />
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="card-footer" id="card_footer">
-            <div class="row">
-                <div class="col">
-                    <h6 style="margin-left: 55px">@Employee.FirstName @Employee.LastName </h6>
-                    <h6 style="margin-left:55px">Department : @Employee.DepartmentId </h6>
-                </div>
-                <div class="col ml-auto">
-                    @*<h6 class="float-right"><i class="fa fa-barcode">@Model.Employee.BarCode</i></h6>*@
-
+            <div class="card-footer" id="card_footer">
+                <div class="row">
+                    <div class="col">
+                        <h6>@Employee.FirstName @Employee.LastName </h6>
+                        <h6>Department : @(Employee.Department == null ? "N/A" : Employee.Department.DepartmentName)</h6>
+                    </div>
+                    <div class="col ml-auto">
+                        <h5 class="text float-right"><i class="fas fa-barcode"></i>&emsp;@Employee.BarCode</h5>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="card-footer" id="card_footer1">
-            <div class="container">
-                <a href="/" id="btn_back" class="btn btn-sm text-white ml-auto"><i class="fas fa-chevron-left"></i>&emsp; Back</a>
-
+            <div class="card-footer" id="card_footer1">
+                <div class="container">
+                    <a href="/" id="btn_back" class="btn btn-sm text-white ml-auto"><i class="fas fa-chevron-left"></i>&emsp; Back</a>
+                </div>
             </div>
         </div>
     </div>
-</div>
+}
 
