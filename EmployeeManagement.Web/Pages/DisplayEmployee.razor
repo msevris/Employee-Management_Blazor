@@ -1,0 +1,16 @@
+﻿@inherits DisplayEmployeeBase
+
+<div class="card m-3 shadow-sm">
+    <img class="img-Thumbnail" src="@Employee.PhotoPath" asp-append-version="true" alt="Card image cap" />
+    <div class="card-body">
+        <h5 class="card-title">@Employee.FirstName @Employee.LastName</h5>
+    </div>
+    @if (ShowFooter)
+    {
+     <div class="card-footer">
+         <a href="@($"employeedetails/{Employee.EmployeeId}")"><span class="far fa-eye fa_custom"></span></a>
+         <a class="ml-3" href="#"><span class="fas fa-pencil-alt fa_custom"></span></a>
+         <a href="#" class="float-right"><i class="fas fa-trash-alt fa_custom_del"></i></a>
+     </div>
+    }
+</div>

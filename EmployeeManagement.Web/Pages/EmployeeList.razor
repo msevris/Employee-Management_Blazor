@@ -50,7 +50,8 @@
         margin-right: -15px;
     }
 </style>
-
+<input type="checkbox" id="showFooter" @bind="ShowFooter" />
+<label for="showFooter">Show Footer</label>
 @if (Employees == null)
 {
     <div class="spinner"></div>
@@ -60,18 +61,7 @@ else
 <div class="card-deck">
     @foreach (var employee in Employees)
     {
-        <div class="card m-3 shadow-sm">
-            <img class="img-Thumbnail" src="@employee.PhotoPath" asp-append-version="true" alt="Card image cap" />
-            <div class="card-body">
-                <h5 class="card-title">@employee.FirstName @employee.LastName</h5>
-            </div>
-
-            <div class="card-footer">
-                <a href="@($"employeedetails/{employee.EmployeeId}")"><span class="far fa-eye fa_custom"></span></a>
-                <a class="ml-3" href="#"><span class="fas fa-pencil-alt fa_custom"></span></a>
-                <a href="#" class="float-right"><i class="fas fa-trash-alt fa_custom_del"></i></a>
-            </div>
-        </div>
+        <DisplayEmployee Employee="employee" ShowFooter="ShowFooter"></DisplayEmployee>
     }
 </div>
 }
