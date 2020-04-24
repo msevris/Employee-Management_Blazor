@@ -3,7 +3,11 @@
 <div class="card m-3 shadow-sm">
     <img class="img-Thumbnail" src="@Employee.PhotoPath" asp-append-version="true" alt="Card image cap" />
     <div class="card-body">
-        <h5 class="card-title">@Employee.FirstName @Employee.LastName</h5>
+        <h5 class="card-title">@Employee.FirstName @Employee.LastName
+            <input class="float-left mt-1 mr-3" type="checkbox" @onchange="CheckBoxChanged" />
+        </h5>
+       
+        
     </div>
     @if (ShowFooter)
     {

@@ -67,7 +67,7 @@ namespace EmployeeManagement.Api.Migrations
                     { 7, "58 Indianna St", "2235432", new DateTime(1974, 3, 3, 0, 0, 0, 0, DateTimeKind.Unspecified), 1, "roger@ims.com", "Roger", 0, "Fredrig", "0068 445743241", "images/roger.png" },
                     { 8, "22 California St", "3342224", new DateTime(1988, 7, 3, 0, 0, 0, 0, DateTimeKind.Unspecified), 2, "teressa@ims.com", "Teressa", 1, "May", "0068 656743233", "images/teressa.png" },
                     { 9, "45 Linard St", "3345221", new DateTime(1986, 11, 23, 0, 0, 0, 0, DateTimeKind.Unspecified), 3, "sara@ims.com", "Sara", 1, "Jennings", "0068 764353653", "images/sara.png" },
-                    { 10, "60 Zambata Corn St", "9987556", new DateTime(1976, 5, 19, 0, 0, 0, 0, DateTimeKind.Unspecified), 1, "jack@ims.com", "Jack", 0, "Pallace", "0068 764353653", "images/moImage.png" }
+                    { 10, "60 Zambata Corn St", "9987556", new DateTime(1976, 5, 19, 0, 0, 0, 0, DateTimeKind.Unspecified), 1, "jack@ims.com", "Jack", 0, "Pallace", "0068 764353653", "images/noImage.png" }
                 });
         }
 
