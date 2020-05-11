@@ -1,7 +1,8 @@
 ﻿@page "/employeedetails/{id}"
 @inherits EmployeeDetailsBase
 <h3>EmployeeDetails</h3>
-
+<hr />
+<a href="/" id="btn_back" class="btn btn-sm"><i class="fas fa-chevron-left"></i>&emsp; Back</a>
 
 <style>
     .card {
@@ -60,8 +61,6 @@
     }
 
     #btn_back {
-        margin-top: -14px;
-        margin-left: 40px;
         font-family: Roboto;
         font-weight: 500;
     }
@@ -100,6 +99,9 @@ else
                 <div class="row">
                     <div class="col-sm-4">
                         <img class="img-Thumbnail shadow-sm" src="@Employee.PhotoPath" asp-append-version="true" />
+                        <br />
+                        <br />
+                        <h5><i class="fas fa-barcode ml-2"></i>&emsp;@Employee.BarCode</h5>
                     </div>
                     <div class="col-sm-6 ml-md-auto" id="employee_details">
                         <h5><i class="fas fa-passport"></i>&emsp;Employee ID : @Employee.EmployeeId </h5>
@@ -112,6 +114,7 @@ else
                         <br />
                         <h5><i class="fas fa-map-marker-alt"></i>&emsp;@Employee.Address</h5>
                         <br />
+                        
                     </div>
                 </div>
             </div>
@@ -122,16 +125,15 @@ else
                         <h6>Department : @(Employee.Department == null ? "N/A" : Employee.Department.DepartmentName)</h6>
                     </div>
                     <div class="col ml-auto">
-                        <h5 class="text float-right"><i class="fas fa-barcode"></i>&emsp;@Employee.BarCode</h5>
+                        <a class="ml-3 text-white float-right" href="@($"editemployee/{Employee.EmployeeId}")"><span class="fas fa-pencil-alt fa_custom"></span></a>
                     </div>
-                </div>
-            </div>
-            <div class="card-footer" id="card_footer1">
-                <div class="container">
-                    <a href="/" id="btn_back" class="btn btn-sm text-white ml-auto"><i class="fas fa-chevron-left"></i>&emsp; Back</a>
+                    <div>
+                        <a href="#" class="mr-4 text-white float-right"><i class="fas fa-trash-alt fa_custom_del"></i></a>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+
 }
 
