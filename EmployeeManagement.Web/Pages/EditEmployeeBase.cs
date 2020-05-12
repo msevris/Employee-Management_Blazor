@@ -16,6 +16,7 @@ namespace EmployeeManagement.Web.Pages
         [Inject] public IEmployeeService EmployeeService { get; set; }
         [Inject] public IDepartmentService DepartmentService { get; set; }
         [Inject] public IMapper Mapper { get; set; }
+        [Inject] public NavigationManager NavigationManager { get; set; }
         [Parameter] public string Id { get; set; }
         private Employee Employee { get; set; } = new Employee(); 
         public EditEmployeeModel EditEmployeeModel { get; set; } = new EditEmployeeModel();
@@ -28,8 +29,7 @@ namespace EmployeeManagement.Web.Pages
             
             // AutoMapper
             Mapper.Map(Employee, EditEmployeeModel);
-            
-            #region Manual Mapping Code   //as Comment
+            #region Manual Mapping Code   // commented bcs i use AutoMapper
             //EditEmployeeModel.EmployeeId = Employee.EmployeeId;
             //EditEmployeeModel.FirstName = Employee.FirstName;
             //EditEmployeeModel.LastName = Employee.LastName;
@@ -44,6 +44,15 @@ namespace EmployeeManagement.Web.Pages
             #endregion
         }
 
-        protected void HandleValidSubmit() { }        
+        protected async Task HandleValidSubmit() 
+        {
+            Mapper.Map(EditEmployeeModel, Employee);
+           var result = await EmployeeService.UpdateEmployee(Employee);
+
+            if (result != null)
+            {
+                NavigationManager.NavigateTo("/");
+            }
+        }        
     }
 }
