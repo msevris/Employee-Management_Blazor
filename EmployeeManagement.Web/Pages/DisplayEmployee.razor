@@ -3,16 +3,16 @@
 <div class="card m-3 shadow-sm">
     <img class="img-Thumbnail" src="@Employee.PhotoPath" asp-append-version="true" alt="Card image cap" />
     <div class="card-body">
-        <h5 class="card-title">@Employee.FirstName @Employee.LastName
-            <input class="float-left mt-1 mr-3" type="checkbox" @onchange="CheckBoxChanged" />
+        <h5 class="card-title">
+            @Employee.FirstName @Employee.LastName
+            @*<input class="float-left mt-1 mr-3" type="checkbox" @onchange="CheckBoxChanged" />*@
         </h5>
     </div>
     @if (ShowFooter)
     {
-     <div class="card-footer">
-         <a href="@($"employeedetails/{Employee.EmployeeId}")"><span class="far fa-eye fa_custom"></span></a>
-         <a class="ml-3" href="@($"editemployee/{Employee.EmployeeId}")"><span class="fas fa-pencil-alt fa_custom"></span></a>
-         <a href="#" class="float-right"><i class="fas fa-trash-alt fa_custom_del"></i></a>
-     </div>
-    }
+<div class="card-footer">
+    <a class="text-secondary" href="@($"employeedetails/{Employee.EmployeeId}")"><span class="oi oi-eye"></span></a>
+    <a class="text-secondary ml-3" href="@($"editemployee/{Employee.EmployeeId}")"><span class="oi oi-pencil"></span></a>
+    <button type="button" class="btn float-right text-danger mb-2" @onclick="Delete_Click"><i class="oi oi-trash"></i></button>
+</div>}
 </div>

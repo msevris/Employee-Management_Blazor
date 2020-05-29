@@ -2,28 +2,28 @@
 @inherits EmployeeDetailsBase
 <h3>EmployeeDetails</h3>
 <hr />
-<a href="/" id="btn_back" class="btn btn-sm"><i class="fas fa-chevron-left"></i>&emsp; Back</a>
+<a href="/" id="btn_back" class="btn btn-sm"><i class="oi oi-arrow-left"></i> Back</a>
 
 <style>
     .card {
         min-width: 700px;
         max-width: 700px;
         min-height: 450px;
-        max-height: 450px;
+        max-height: 580px;
         margin-top: 8px;
         border-radius: 0.45rem;
     }
 
     .card-header {
         min-height: 95px;
-        background-color: rgb(57,108,164);
+        background-color: rgb(43, 107, 145);
         font-size: large;
         font-weight: 500;
         color: white;
     }
 
     .card-footer {
-        min-height: 80px;
+        min-height: 95px;
         background-color: rgb(90, 128, 170);
     }
 
@@ -44,16 +44,6 @@
         margin-right: 15px;
         font-size: xx-large;
         font-weight: 300;
-    }
-
-    #card_footer {
-        color: white;
-    }
-
-    #card_footer1 {
-        background-color: rgb(57,108,164);
-        color: white;
-        min-height: 40px;
     }
 
     #header_img {
@@ -92,16 +82,13 @@ else
     <div class="row">
         <div class="card">
             <div class="card-header align-items-center">
-                <img id="header_img" src="/images/ims.png" asp-append-version="true" />
+                <img id="header_img" src="/images/logo.png" asp-append-version="true" />
                 <a class="text float-right" id="header_employee_name">@Employee.FirstName @Employee.LastName </a>
             </div>
             <div class="card-body">
                 <div class="row">
                     <div class="col-sm-4">
                         <img class="img-Thumbnail shadow-sm" src="@Employee.PhotoPath" asp-append-version="true" />
-                        <br />
-                        <br />
-                        <h5><i class="fas fa-barcode ml-2"></i>&emsp;@Employee.BarCode</h5>
                     </div>
                     <div class="col-sm-6 ml-md-auto" id="employee_details">
                         <h5><i class="fas fa-passport"></i>&emsp;Employee ID : @Employee.EmployeeId </h5>
@@ -118,17 +105,17 @@ else
                     </div>
                 </div>
             </div>
-            <div class="card-footer" id="card_footer">
+            <div class="card-footer text-white-50 align-items-center">
                 <div class="row">
                     <div class="col">
-                        <h6>@Employee.FirstName @Employee.LastName </h6>
+                        <h5><i class="oi oi-vertical-align-bottom ml-2"></i>&emsp;@Employee.BarCode</h5>
                         <h6>Department : @(Employee.Department == null ? "N/A" : Employee.Department.DepartmentName)</h6>
                     </div>
                     <div class="col ml-auto">
-                        <a class="ml-3 text-white float-right" href="@($"editemployee/{Employee.EmployeeId}")"><span class="fas fa-pencil-alt fa_custom"></span></a>
+                        <a class="ml-3 text-white-50 float-right" href="@($"editemployee/{Employee.EmployeeId}")"><span class="oi oi-pencil"></span></a>
                     </div>
                     <div>
-                        <a href="#" class="mr-4 text-white float-right"><i class="fas fa-trash-alt fa_custom_del"></i></a>
+                        <a href="#" class="mr-4 text-white-50 float-right"><i class="oi oi-trash"></i></a>
                     </div>
                 </div>
             </div>

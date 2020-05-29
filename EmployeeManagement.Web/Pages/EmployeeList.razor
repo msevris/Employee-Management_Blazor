@@ -1,7 +1,6 @@
 ﻿@page "/"
 @inherits EmployeeListBase
-
-<h3>Employee List - @SelectedEmployeesCount</h3>
+@*<h3>Employee List - @SelectedEmployeesCount</h3>*@
 
 <style>
     .card {
@@ -38,31 +37,28 @@
         font-weight: 300;
     }
 
-    .fa_custom {
-        color: rgb(90, 128, 170);
-    }
-
-    .fa_custom_del {
-        color: rgb(162,75,64);
-    }
-
     #search {
         margin-right: -15px;
     }
 </style>
-<input type="checkbox" id="showFooter" @bind="ShowFooter" />
-<label for="showFooter">Show Footer</label>
-@if (Employees == null)
-{
-    <div class="spinner"></div>
-}
-else
-{
+
+
+@*<div class="row">
+        <input type="checkbox" id="showFooter" @bind="ShowFooter" />
+        <label for="showFooter">Show Footer</label>
+    </div>*@
+
+<div class="row">
+    @if (Employees == null)
+    {
+<div class="spinner"></div> }
+            else
+            {
 <div class="card-deck">
     @foreach (var employee in Employees)
     {
-        <DisplayEmployee Employee="employee" ShowFooter="ShowFooter"
-                         OnEmployeeSelection="EmployeeSelectionChanged"></DisplayEmployee>
-    }
+<DisplayEmployee Employee="employee" ShowFooter="ShowFooter"
+                 OnEmployeeSelection="EmployeeSelectionChanged"
+                 OnEmployeeDeleted="EmployeeDeleted"></DisplayEmployee>}
+</div>}
 </div>
-}
